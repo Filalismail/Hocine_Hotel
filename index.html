@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hotel Hocine - Constantine | موقع تعريفي</title>
+  <meta name="description" content="Hotel Hocine - Constantine. Hotel landing page (Arabic / Français / English)." />
+  <style>
+    /* ===== Reset & Base ===== */
+    :root{
+      --accent:#0b67a3; --muted:#666; --bg:#f7f8fb; --card:#fff;
+      --radius:12px; --maxW:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, 'Noto Kufi Arabic', 'Tahoma';margin:0;background:var(--bg);color:#111}
+    a{color:var(--accent);text-decoration:none}
+    img{max-width:100%;display:block;border-radius:8px}
+    .container{max-width:var(--maxW);margin:18px auto;padding:18px}
+
+    /* ===== Header ===== */
+    header{display:flex;gap:12px;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:64px;height:64px;border-radius:8px;background:linear-gradient(135deg,#0b67a3,#1fb7ff);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    nav{display:flex;gap:10px;align-items:center}
+    .btn{padding:8px 12px;border-radius:10px;background:var(--accent);color:white;border:0;cursor:pointer}
+    .btn.secondary{background:#eee;color:#222}
+
+    /* ===== Hero ===== */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:18px;align-items:center;margin-top:14px}
+    .hero-card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:0 6px 20px rgba(10,10,20,.06)}
+    .hero h1{margin:0;font-size:24px}
+    .hero .tag{color:var(--muted);margin-top:6px}
+    .quick-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .meta{background:#f3fbff;padding:8px 10px;border-radius:8px;font-size:14px}
+
+    /* ===== Grid sections ===== */
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:18px}
+    .card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 6px 20px rgba(10,10,20,.04)}
+
+    /* ===== Rooms ===== */
+    .rooms{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+    .room{padding:12px;border-radius:10px;background:#fff;border:1px solid #eef2f7}
+    .price{font-weight:700;margin-top:6px}
+
+    /* ===== Services ===== */
+    .services{display:flex;flex-wrap:wrap;gap:10px}
+    .service{flex:1 1 140px;background:#f8fbff;padding:10px;border-radius:8px;border:1px solid #eef6ff;text-align:center}
+
+    /* ===== Map & reviews ===== */
+    .map-wrap iframe{width:100%;height:300px;border-radius:10px;border:0}
+    .reviews{display:flex;flex-direction:column;gap:8px}
+    .review{background:#fff;padding:12px;border-radius:8px;border:1px solid #eee}
+
+    /* ===== Footer ===== */
+    footer{margin-top:22px;text-align:center;color:var(--muted);padding:18px}
+
+    /* ===== Lang switch small ===== */
+    .lang-switch{display:flex;gap:8px}
+
+    /* ===== Responsive ===== */
+    @media(max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+    }
+
+    /* ===== RTL helpers for Arabic ===== */
+    .rtl{direction:rtl;text-align:right}
+  </style>
+</head>
+<body>
+  <div class="container" id="site">
+    <header>
+      <div class="brand">
+        <div class="logo">H</div>
+        <div>
+          <div style="font-weight:700;font-size:16px" data-key="hotel_name">Hotel Hocine</div>
+          <div style="font-size:13px;color:var(--muted)" data-key="hotel_location">Ali Mendjeli New City, Constantine</div>
+        </div>
+      </div>
+
+      <nav>
+        <div class="lang-switch">
+          <button class="btn secondary" data-lang="ar">ع</button>
+          <button class="btn secondary" data-lang="fr">Fr</button>
+          <button class="btn secondary" data-lang="en">En</button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-card" id="hero">
+        <h1 data-key="hero_title">Hotel Hocine — Constantine</h1>
+        <div class="tag" data-key="hero_tag">4 stars • 99 rooms • Spa & pool</div>
+        <div class="quick-meta">
+          <div class="meta" data-key="meta_distance">Airport: ~11 km</div>
+          <div class="meta" data-key="meta_wifi">Free Wi‑Fi</div>
+          <div class="meta" data-key="meta_service">24/7 Reception</div>
+        </div>
+        <p style="margin-top:12px;line-height:1.6" data-key="hero_desc">Comfortable, modern hotel with spa, indoor pool, restaurant and conference facilities — ideal for business and leisure.</p>
+
+        <div style="display:flex;gap:8px;margin-top:14px">
+          <a class="btn" id="bookBtn" href="#contact" data-key="btn_reserve">احجز الآن</a>
+          <a class="btn secondary" href="#rooms" data-key="btn_rooms">اطلع على الغرف</a>
+        </div>
+
+        <div style="margin-top:14px;font-size:13px;color:var(--muted)" data-key="price_note">الأسعار تقريبة ومحوّلة للدينار الجزائري (تحديث تلقائي في الإعدادات).</div>
+      </div>
+
+      <aside>
+        <div class="card">
+          <div style="display:flex;gap:10px;align-items:center">
+            <img src="images/hotel-front.jpg" alt="Hotel facade" style="width:96px;height:72px;object-fit:cover;border-radius:8px">
+            <div>
+              <div style="font-weight:700" data-key="card_title">Hotel Hocine</div>
+              <div style="font-size:13px;color:var(--muted)" data-key="card_loc">Constantine, Algeria</div>
+            </div>
+          </div>
+          <div style="margin-top:12px">
+            <div style="font-size:13px;color:var(--muted)" data-key="rooms_count">99 غرف - 156 سرير</div>
+            <div style="margin-top:8px"><strong data-key="rating">★★★★★ 4.4</strong> <span style="color:var(--muted)">(<span data-key="reviews_count">200+</span> آراء)</span></div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h4 data-key="pick_title">تواصل سريع</h4>
+          <p style="margin:0;color:var(--muted)" data-key="pick_phone">الهاتف: +213 31 00 00 00</p>
+          <p style="margin:0;color:var(--muted)" data-key="pick_email">email@hotel-hocine.dz</p>
+          <a class="btn" href="#contact" style="margin-top:8px;display:inline-block" data-key="contact_btn">تواصل معنا</a>
+        </div>
+      </aside>
+    </section>
+
+    <!-- MAIN GRID -->
+    <section class="grid">
+      <div>
+        <div class="card" id="about">
+          <h3 data-key="about_title">عن الفندق</h3>
+          <p data-key="about_text">Hotel Hocine — فندق 4 نجوم يقع في المدينة الجديدة علي منجلي بقسنطينة. الفندق يقدم غرفاً متعددة الأحجام، مرافق سبا ومطعم بوفيه، ونقل من وإلى المطار.</p>
+        </div>
+
+        <div class="card" style="margin-top:12px" id="rooms">
+          <h3 data-key="rooms_title">الغرف والأسعار</h3>
+          <div class="rooms">
+            <div class="room">
+              <div style="font-weight:700" data-key="room_single">غرفة مفردة — Single</div>
+              <div class="price" data-key="price_single">من 52 USD (~<span class="dzd" data-usd="52">—</span> دج)</div>
+              <div style="font-size:13px;color:var(--muted)" data-key="room_size_single">22 م² • سرير مفرد</div>
+            </div>
+
+            <div class="room">
+              <div style="font-weight:700" data-key="room_double">غرفة مزدوجة — Double / King</div>
+              <div class="price" data-key="price_double">من 70 USD (~<span class="dzd" data-usd="70">—</span> دج)</div>
+              <div style="font-size:13px;color:var(--muted)" data-key="room_size_double">27 م² • سرير مزدوج</div>
+            </div>
+
+            <div class="room">
+              <div style="font-weight:700" data-key="room_triple">غرفة ثلاثية — Triple</div>
+              <div class="price" data-key="price_triple">من 88 USD (~<span class="dzd" data-usd="88">—</span> دج)</div>
+              <div style="font-size:13px;color:var(--muted)" data-key="room_size_triple">30 م² • 3 أسرّة</div>
+            </div>
+
+            <div class="room">
+              <div style="font-weight:700" data-key="room_suite">جناح جونيور/جناح — Suite</div>
+              <div class="price" data-key="price_suite">من 150 USD (~<span class="dzd" data-usd="150">—</span> دج)</div>
+              <div style="font-size:13px;color:var(--muted)" data-key="room_size_suite">35–65 م²</div>
+            </div>
+          </div>
+
+          <p style="margin-top:12px;color:var(--muted);font-size:13px">الأسعار تقريبية وتعتمد على الموسم. يمكنك تعديل القيم في ملف <code>index.html</code> أو لوحة تحكم الحجز.</p>
+        </div>
+
+        <div class="card" style="margin-top:12px" id="services">
+          <h3 data-key="services_title">الخدمات والمرافق</h3>
+          <div class="services">
+            <div class="service" data-key="srv_pool">مسبح داخلي/خارجي</div>
+            <div class="service" data-key="srv_spa">سبا — ساونا وجاكوزي</div>
+            <div class="service" data-key="srv_restaurant">مطعم وبار • بوفيه إفطار</div>
+            <div class="service" data-key="srv_parking">موقف سيارات مجاني</div>
+            <div class="service" data-key="srv_wifi">واي‑فاي مجاني</div>
+            <div class="service" data-key="srv_transfer">نقل من/إلى المطار</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px" id="map">
+          <h3 data-key="map_title">موقعنا على الخريطة</h3>
+          <div class="map-wrap">
+            <!-- embed a simple google maps search for the hotel; this works without API key -->
+            <iframe src="https://www.google.com/maps?q=Hotel+Hocine+Constantine&output=embed" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px" id="reviews">
+          <h3 data-key="reviews_title">آراء العملاء</h3>
+          <div class="reviews" id="reviewsList">
+            <!-- sample reviews - these can be replaced by real ones or a Google Places integration using an API key -->
+            <div class="review">
+              <strong>Amine B.</strong>
+              <div style="font-size:13px;color:var(--muted)">"خدمة ممتازة، غرف نظيفة وموقع مناسب."</div>
+            </div>
+            <div class="review">
+              <strong>Sophie</strong>
+              <div style="font-size:13px;color:var(--muted)">"Très bon séjour, personnel très professionnel."</div>
+            </div>
+            <div class="review">
+              <strong>John</strong>
+              <div style="font-size:13px;color:var(--muted)">"Nice hotel with spa and indoor pool."</div>
+            </div>
+          </div>
+          <p style="margin-top:8px;color:var(--muted);font-size:13px">للعرض التلقائي لآراء Google مباشرة على الصفحة تحتاج لمفتاح واجهة Google Places API — تقدر تضيفه لو حبيت.</p>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <aside>
+        <div class="card" id="contact">
+          <h3 data-key="contact_title">حجز & تواصل</h3>
+          <form id="contactForm" onsubmit="submitForm(event)">
+            <label style="display:block;margin-top:8px" data-key="form_name">الاسم</label>
+            <input required name="name" placeholder="" style="width:100%;padding:8px;border-radius:8px;border:1px solid #eee">
+
+            <label style="display:block;margin-top:8px" data-key="form_email">البريد الإلكتروني</label>
+            <input required name="email" type="email" style="width:100%;padding:8px;border-radius:8px;border:1px solid #eee">
+
+            <label style="display:block;margin-top:8px" data-key="form_room">نوع الغرفة</label>
+            <select name="room" style="width:100%;padding:8px;border-radius:8px;border:1px solid #eee">
+              <option value="single">Single</option>
+              <option value="double">Double</option>
+              <option value="triple">Triple</option>
+              <option value="suite">Suite</option>
+            </select>
+
+            <label style="display:block;margin-top:8px" data-key="form_msg">رسالة</label>
+            <textarea name="message" rows="4" style="width:100%;padding:8px;border-radius:8px;border:1px solid #eee"></textarea>
+
+            <button class="btn" style="width:100%;margin-top:10px" data-key="form_send">أرسل الطلب</button>
+            <div id="formMsg" style="margin-top:8px;font-size:13px;color:var(--muted)"></div>
+          </form>
+
+          <div style="margin-top:12px;font-size:13px;color:var(--muted)">
+            <div data-key="contact_info">الهاتف: +213 31 00 00 00</div>
+            <div data-key="contact_email">email@hotel-hocine.dz</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h4 data-key="policies_title">سياسات</h4>
+          <ul style="padding-left:18px;color:var(--muted);margin:0;font-size:13px">
+            <li data-key="policy_checkin">تسجيل الوصول: 14:00</li>
+            <li data-key="policy_checkout">تسجيل المغادرة: 12:00</li>
+            <li data-key="policy_cancel">إلغاء الحجز يخضع للشروط</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h4 data-key="social_title">روابط</h4>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <a href="#" data-key="link_map">عرض على Google Maps</a>
+            <a href="#" data-key="link_booking">اختر عبر Booking / Trip</a>
+            <a href="#" data-key="link_photos">المعرض الكامل للصور</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      <div data-key="footer_text">© <span id="year"></span> Hotel Hocine — جميع الحقوق محفوظة</div>
+    </footer>
+  </div>
+
+  <script>
+    // ====== Language dictionary ======
+    const LANG = {
+      en: {
+        hotel_name: 'Hotel Hocine', hotel_location: 'Ali Mendjeli New City, Constantine, Algeria',
+        hero_title: 'Hotel Hocine — Constantine', hero_tag: '4 stars • 99 rooms • Spa & pool', hero_desc: 'Comfortable, modern hotel with spa, indoor pool, restaurant and conference facilities — ideal for business and leisure.',
+        meta_distance: 'Airport: ~11 km', meta_wifi: 'Free Wi‑Fi', meta_service: '24/7 Reception',
+        btn_reserve: 'Book Now', btn_rooms: 'View rooms', price_note: 'Prices approximate and converted to DZD.',
+        card_title: 'Hotel Hocine', card_loc: 'Constantine, Algeria', rooms_count: '99 rooms • 156 beds', rating: '★★★★★ 4.4', reviews_count: '200+', pick_title:'Quick contact', pick_phone:'Phone: +213 31 00 00 00', pick_email:'email@hotel-hocine.dz', contact_btn:'Contact',
+        about_title:'About the hotel', about_text:'Hotel Hocine is a 4-star hotel located in Ali Mendjeli New City. The hotel offers rooms of various sizes, spa facilities, buffet restaurant and airport transfer.',
+        rooms_title:'Rooms & Prices', room_single:'Single room', price_single:'From 52 USD', room_size_single:'22 m² • Single bed', room_double:'Double / King', price_double:'From 70 USD', room_size_double:'27 m²', room_triple:'Triple room', price_triple:'From 88 USD', room_size_triple:'30 m²', room_suite:'Junior Suite / Suite', price_suite:'From 150 USD', room_size_suite:'35–65 m²',
+        services_title:'Services & Facilities', srv_pool:'Indoor/Outdoor pool', srv_spa:'Spa — Sauna & Jacuzzi', srv_restaurant:'Restaurant & Bar', srv_parking:'Free Parking', srv_wifi:'Free Wi‑Fi', srv_transfer:'Airport transfer',
+        map_title:'Our location', reviews_title:'Guest reviews', contact_title:'Book & Contact', form_name:'Name', form_email:'Email', form_room:'Room type', form_msg:'Message', form_send:'Send request', form_name_required:'Please enter your name', contact_info:'Phone: +213 31 00 00 00', contact_email:'email@hotel-hocine.dz', policies_title:'Policies', policy_checkin:'Check-in: 14:00', policy_checkout:'Check-out: 12:00', policy_cancel:'Cancellation applies', social_title:'Links', link_map:'View on Google Maps', link_booking:'Book on Booking / Trip', link_photos:'Full photo gallery', footer_text:'© HOTEL HOCINE — All rights reserved'
+      },
+      fr: {
+        hotel_name: 'Hôtel Hocine', hotel_location: 'Ali Mendjeli, Constantine, Algérie',
+        hero_title: 'Hôtel Hocine — Constantine', hero_tag: '4 étoiles • 99 chambres • Spa & piscine', hero_desc: 'Hôtel confortable et moderne avec spa, piscine intérieure, restaurant et salles de conférence — idéal pour affaires et loisirs.',
+        meta_distance:'Aéroport: ~11 km', meta_wifi:'Wi‑Fi gratuit', meta_service:'Réception 24/7',
+        btn_reserve:'Réserver', btn_rooms:'Voir les chambres', price_note:'Prix approximatifs convertis en DZD.',
+        card_title:'Hôtel Hocine', card_loc:'Constantine, Algérie', rooms_count:'99 chambres • 156 lits', rating:'★★★★★ 4.4', reviews_count:'200+', pick_title:'Contact rapide', pick_phone:'Tél: +213 31 00 00 00', pick_email:'email@hotel-hocine.dz', contact_btn:'Contact',
+        about_title:'À propos', about_text:'Hôtel 4 étoiles situé à Ali Mendjeli. Possibilité de spa, restaurant buffet et transfert aéroport.',
+        rooms_title:'Chambres & Tarifs', room_single:'Chambre simple', price_single:'À partir de 52 USD', room_size_single:'22 m²', room_double:'Double / King', price_double:'À partir de 70 USD', room_triple:'Triple', price_triple:'À partir de 88 USD', room_suite:'Suite', price_suite:'À partir de 150 USD',
+        services_title:'Services', srv_pool:'Piscine intérieure/exterieure', srv_spa:'Spa — Sauna & Jacuzzi', srv_restaurant:'Restaurant & Bar', srv_parking:'Parking gratuit', srv_wifi:'Wi‑Fi gratuit', srv_transfer:'Transfert aéroport',
+        map_title:'Notre emplacement', reviews_title:'Avis clients', contact_title:'Réservation & Contact', form_name:'Nom', form_email:'E‑mail', form_room:'Type de chambre', form_msg:'Message', form_send:'Envoyer', contact_info:'Tél: +213 31 00 00 00', contact_email:'email@hotel-hocine.dz', policies_title:'Politiques', policy_checkin:'Arrivée: 14:00', policy_checkout:'Départ: 12:00', policy_cancel:'Annulation selon conditions', social_title:'Liens', link_map:'Voir sur Google Maps', link_booking:'Réserver (Booking/Trip)', link_photos:'Galerie photos', footer_text:'© HÔTEL HOCINE — Tous droits réservés'
+      },
+      ar: {
+        hotel_name: 'فندق الحسين', hotel_location: 'المدينة الجديدة علي منجلي، قسنطينة، الجزائر',
+        hero_title: 'فندق الحسين — قسنطينة', hero_tag: '4 نجوم • 99 غرفة • سبا ومسبح', hero_desc: 'فندق مريح وحديث مع سبا، مسبح داخلي، مطعم ومرافق مؤتمرات — مناسب للعمل والراحة.',
+        meta_distance:'المطار: ~11 كم', meta_wifi:'واي‑فاي مجاني', meta_service:'استقبال 24/7',
+        btn_reserve:'احجز الآن', btn_rooms:'اطلع على الغرف', price_note:'الأسعار تقريبية ومحوّلة للدينار الجزائري.',
+        card_title:'فندق الحسين', card_loc:'قسنطينة، الجزائر', rooms_count:'99 غرفة • 156 سرير', rating:'★★★★★ 4.4', reviews_count:'200+', pick_title:'تواصل سريع', pick_phone:'الهاتف: +213 31 00 00 00', pick_email:'email@hotel-hocine.dz', contact_btn:'تواصل',
+        about_title:'عن الفندق', about_text:'فندق 4 نجوم يقع في المدينة الجديدة علي منجلي بقسنطينة. يوفّر غرفاً متعدّدة، سبا ومطعم بوفيه، وخدمة نقل للمطار.',
+        rooms_title:'الغرف والأسعار', room_single:'غرفة مفردة', price_single:'ابتداءً من 52 USD', room_size_single:'22 م²', room_double:'غرفة مزدوجة / كينغ', price_double:'ابتداءً من 70 USD', room_triple:'غرفة ثلاثية', price_triple:'ابتداءً من 88 USD', room_suite:'جناح', price_suite:'ابتداءً من 150 USD', room_size_suite:'35–65 م²',
+        services_title:'الخدمات والمرافق', srv_pool:'مسبح داخلي/خارجي', srv_spa:'سبا — ساونا وجاكوزي', srv_restaurant:'مطعم وبار • بوفيه إفطار', srv_parking:'موقف سيارات مجاني', srv_wifi:'واي‑فاي مجاني', srv_transfer:'نقل من/إلى المطار',
+        map_title:'موقعنا', reviews_title:'آراء النزلاء', contact_title:'حجز & تواصل', form_name:'الاسم', form_email:'البريد الإلكتروني', form_room:'نوع الغرفة', form_msg:'رسالة', form_send:'أرسل الطلب', contact_info:'الهاتف: +213 31 00 00 00', contact_email:'email@hotel-hocine.dz', policies_title:'السياسات', policy_checkin:'تسجيل الوصول: 14:00', policy_checkout:'تسجيل المغادرة: 12:00', policy_cancel:'إلغاء الحجز يخضع للشروط', social_title:'روابط', link_map:'عرض على Google Maps', link_booking:'الحجز عبر Booking / Trip', link_photos:'المعرض الكامل للصور', footer_text:'© فندق الحسين — جميع الحقوق محفوظة'
+      }
+    }
+
+    // ====== simple translator ======
+    function setLang(lang){
+      const doc = document;
+      const dict = LANG[lang] || LANG.en;
+      // set text for keys
+      document.querySelectorAll('[data-key]').forEach(el=>{
+        const key = el.getAttribute('data-key');
+        if(dict[key]) el.textContent = dict[key];
+      });
+      // set some attributes
+      document.documentElement.lang = (lang==='ar')? 'ar' : (lang==='fr')? 'fr':'en';
+      if(lang==='ar') document.body.classList.add('rtl'); else document.body.classList.remove('rtl');
+      // re-render DZD prices using global rate
+      renderDZD();
+    }
+
+    // ====== currency convert (USD -> DZD) ======
+    // default rate (will be updated automatically if you include live rate)
+    let USD_TO_DZD = 129.56; // editable — use current rate from your source
+
+    function renderDZD(){
+      document.querySelectorAll('.dzd').forEach(span=>{
+        const usd = Number(span.getAttribute('data-usd')||0);
+        const val = Math.round(usd * USD_TO_DZD).toLocaleString();
+        span.textContent = val;
+      });
+    }
+
+    // ====== language buttons ======
+    document.querySelectorAll('[data-lang]').forEach(btn=>{
+      btn.addEventListener('click',()=>{ setLang(btn.getAttribute('data-lang')) });
+    });
+
+    // default language: Arabic (you can change to en or fr)
+    setLang('ar');
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ====== contact form (uses Formspree as an example) ======
+    function submitForm(e){
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+      const endpoint = 'https://formspree.io/f/your-form-id'; // <-- replace with real endpoint
+      fetch(endpoint, {method:'POST', body:data})
+        .then(r=>{
+          if(r.ok){ document.getElementById('formMsg').textContent = 'تم إرسال الطلب! سنرد عليك قريباً.'; form.reset(); }
+          else throw new Error('submit failed')
+        })
+        .catch(()=> document.getElementById('formMsg').textContent = 'حدث خطأ، حاول مرة أخرى.' )
+    }
+
+    // ====== small image carousel (auto) ======
+    // You can replace with a full-featured slider later
+    (function(){
+      const imgs = ['images/1.jpg','images/2.jpg','images/3.jpg'];
+      const slot = document.createElement('div'); slot.style.marginTop='12px';
+      slot.style.display='grid'; slot.style.gridTemplateColumns='repeat(3,1fr)'; slot.style.gap='8px';
+      imgs.forEach(src=>{const i=document.createElement('img');i.src=src;i.alt='photo';slot.appendChild(i)});
+      document.getElementById('hero').appendChild(slot);
+    })();
+
+    // ====== Notes for deployment ======
+    /*
+      - Put this file and an /images folder (hotel-front.jpg, 1.jpg, 2.jpg, 3.jpg) in a GitHub repo.
+      - Enable GitHub Pages in repo settings (set branch: main / folder: root) to publish.
+      - To show live Google reviews you need Google Places API (requires key + server-side proxy).
+      - Update USD_TO_DZD variable on top with live rate or integrate a currency API.
+      - Replace contact endpoint with your Formspree ID or server endpoint.
+    */
+  </script>
+</body>
+</html>
